@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace _01___working_with_the_constructor
 {
@@ -10,31 +6,33 @@ namespace _01___working_with_the_constructor
     {
         static void Main(string[] args)
         {
-            Renderer render = new Renderer();
-            Player player = new Player(3, 3);
+            Renderer render = new Renderer();           
 
-            render.DrowPlayer(player.X, player.Y);
+            render.DrawPlayer();
         }
     }
 
     class Player
     {
-        public int X { get; private set; }
-
-        public int Y { get; private set; }        
+        public int PlayerPositionX { get; private set; }
+        public int PlayerPositionY { get; private set; }        
 
         public Player(int x, int y)
         {
-            X = x;
-            Y = y;
+            PlayerPositionX = x;
+            PlayerPositionY = y;
         }
     }
 
     class Renderer
     {
-        public void DrowPlayer(int x, int y, char playerSymbol = '@')
+        Player player = new Player(3, 3);
+
+        public Renderer() { }
+
+        public void DrawPlayer(char playerSymbol = '@')
         {
-            Console.SetCursorPosition(x, y);
+            Console.SetCursorPosition(player.PlayerPositionX, player.PlayerPositionY);
             Console.Write(playerSymbol);
         }
     }
