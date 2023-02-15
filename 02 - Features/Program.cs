@@ -6,9 +6,10 @@ namespace _01___working_with_the_constructor
     {
         static void Main(string[] args)
         {
+            Player player = new Player(3,3);
             Renderer render = new Renderer();           
 
-            render.DrawPlayer();
+            render.DrawPlayer(player.PlayerPositionX, player.PlayerPositionY);
         }
     }
 
@@ -26,13 +27,12 @@ namespace _01___working_with_the_constructor
 
     class Renderer
     {
-        Player player = new Player(3, 3);
 
         public Renderer() { }
 
-        public void DrawPlayer(char playerSymbol = '@')
+        public void DrawPlayer(int playerPositionX, int playerPositionY, char playerSymbol = '@')
         {
-            Console.SetCursorPosition(player.PlayerPositionX, player.PlayerPositionY);
+            Console.SetCursorPosition(playerPositionX, playerPositionY);
             Console.Write(playerSymbol);
         }
     }
