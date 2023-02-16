@@ -9,25 +9,24 @@ namespace _01___working_with_the_constructor
             Player player = new Player(3,3);
             Renderer render = new Renderer();           
 
-            render.DrawPlayer(player.PlayerPositionX, player.PlayerPositionY);
+            render.DrawPlayer(player.PositionX, player.PositionY);
         }
     }
 
     class Player
     {
-        public int PlayerPositionX { get; private set; }
-        public int PlayerPositionY { get; private set; }        
+        public int PositionX { get; private set; }
+        public int PositionY { get; private set; }        
 
-        public Player(int x, int y)
+        public Player(int positionX, int positionY)
         {
-            PlayerPositionX = x;
-            PlayerPositionY = y;
+            PositionX = positionX;
+            PositionY = positionY;
         }
     }
 
     class Renderer
     {
-
         public Renderer() { }
 
         public void DrawPlayer(int playerPositionX, int playerPositionY, char playerSymbol = '@')
